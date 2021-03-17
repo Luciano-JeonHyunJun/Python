@@ -33,3 +33,39 @@
 이제 func3의 param은 전역변수(코드전체에서 유효한) 을 이용하는것이므로 값을 변경하면 현재 값도 변경이 됩니다.<br><br>
 15~16줄은 func1을 호출하면 func1내에서 선언한 지역변수 strdata값인 '지역변수'(함수 안에서만 유효)
 하지만 전역변수(코드 전체에서 유효한)출력하면 '전역변수'(코드 전체에서 유효한)가 출력됩니다.<br>
+
+# Python(ENGver) Please inform that all translations have been made through Google Translator.
+It is a commit that cleans up the Python basics into code. / It's a commit that cleans up the Python basics into code.
+
+<h1>global local variable global variable 2021.3.17</h1>
+Local and global variables are variable names that are used when classifying them based on the valid range of the variable.<br>
+
+<ol>
+  <li>Local variable: This is a variable that is only valid inside a function.</li>
+  
+  <li>Global variable: This is a valid variable throughout the code.</li>
+  
+</ol>
+<br>
+So, the place where local variables are declared is inside the function, and on the contrary, global variables are outside the function.<br>
+Local variables are no longer valid after leaving a function. Variables declared as function Argument are only within the function.
+This is a valid local variable.
+
+<br>
+
+If a local variable declared in a function and a global variable declared outside have the same name, what method should be used? <br><br>
+-If the local variable declared in the function has the same name as the global variable declared outside the function
+ In a function, it is treated as a local variable because it is a'local variable' (priority in the function).
+
+-If you want to use local variables declared outside of the function, you can use the keyword <strong>"global"</strong>.
+
+<h2>Code interpretation</h2>
+Lines 1~2 specify 50 and'global variable' for param and strdata outside the function.<br><br>
+Lines 4~6 assign a string called'local variable' to strdata. Since strdata is in func1, it is declared inside the function, so when it becomes'local variable' and leaves func1
+It will not be a valid variable.<br><br>
+Lines 8~9, func2 has one argument called param. Argument name param has the same name as global variable, but is a local variable that is only valid within func2.
+Therefore, no matter how much you assign a value to param in func2(), the global variable param is not affected (that is, the same name is the same name).<br><br>
+Lines 11-13 declared that we will use the param declared as a global variable by using global inside func3.
+Now, the param of func3 is to use a global variable (valid throughout the code), so if you change the value, the current value is also changed.<br><br>
+Lines 15~16 are'local variable', which is the local variable strdata value declared in func1 when func1 is called (valid only inside a function)
+However, when outputting a global variable (valid throughout the code),'global variable' (valid throughout the code) is displayed.<br>
