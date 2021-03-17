@@ -34,7 +34,8 @@
 15~16줄은 func1을 호출하면 func1내에서 선언한 지역변수 strdata값인 '지역변수'(함수 안에서만 유효)
 하지만 전역변수(코드 전체에서 유효한)출력하면 '전역변수'(코드 전체에서 유효한)가 출력됩니다.<br>
 
-# Python(ENGver) Please inform that all translations have been made through Google Translator.
+# Python(ENGver) 
+<h4>Please inform that all translations have been made through Google Translator.</h4>
 It is a commit that cleans up the Python basics into code. / It's a commit that cleans up the Python basics into code.
 
 <h1>global local variable global variable 2021.3.17</h1>
