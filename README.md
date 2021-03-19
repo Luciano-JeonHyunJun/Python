@@ -166,7 +166,7 @@ cat2 = Cat("미미" , "갈색")
 cat1.info()
 cat2.info()
 </code>
-<pre>
+</pre>
 
 위에 코드까지 해석을 완료했네요. class 정의와 self는 여기까지입니다.
 
