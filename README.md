@@ -268,7 +268,7 @@ cat2 = Cat("Mimi", "Brown")
 cat1.info()
 cat2.info()
 </code>
-<pre>
+</pre>
 
 You have completed the interpretation of the code above. That's all for class definition and self.
 
