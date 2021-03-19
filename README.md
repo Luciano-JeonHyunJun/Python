@@ -70,3 +70,205 @@ Lines 11-13 declared that we will use the param declared as a global variable by
 Now, the param of func3 is to use a global variable (valid throughout the code), so if you change the value, the current value is also changed.<br><br>
 Lines 15~16 are'local variable', which is the local variable strdata value declared in func1 when func1 is called (valid only inside a function)
 However, when outputting a global variable (valid throughout the code),'global variable' (valid throughout the code) is displayed.<br>
+
+<h1>Class 정의와 self 2021.03.19</h1>
+
+<h1>Class</h1><br>
+클래스를 사용하는 이유는 간단합니다 .  클래스를 사용하는 이유는 추상화된 현실의 개념을 구체적인 파이썬 코드로 표현하기 위해서 입니다.
+<br> 예를 하나 들자면 만약에 우리에게 흑백사진이 있다면 현재 21세기에서는 흑백사진을 주로 사용하지는 않고 , 
+색이 있는것을 좋아하는데요
+그럴때 사용하는것이 바로 Class 입니다 . Class에는 '인스턴스' 라는것이 존재하는데요 
+<strong>인스턴스에는 색, 이름등등 구체적인 값을 가지고 있습니다.</strong>
+
+파이썬에서 CLass를 정의하는방법은 밑에와 같습니다
+<pre>
+<code>
+class Cat:
+  def meow(self): #meow() 메소드 정의입니다
+  print('야옹 야옹')
+  
+cat1 = Cat() #인스턴스 생성
+cat1.meow() #메소드 호출 
+</code>
+</pre>
+
+위에처럼 하시면 출력값은 결국 '야옹 야옹' 으로 출력이 되는데요. Class는 두가지로 나눌수 있습니다.
+
+<pre>
+<code>
+#클래스 정의
+
+Class ClassName:
+  '''인스턴스 변수와 메소드 구현'''
+  
+  #인스턴스 생성과 메소드 호출
+    cat1 = Cat() #Cat인스턴스 생성 cat1이 이것을 창조했습니다.
+    cat1.meow() #Cat가 구현한 메소드 호출입니다.
+</code>
+</pre>
+    
+위에처럼 파이썬 Class는 두가지로 나눠서 실행을 할수가 있구요.
+가끔 이럴때가 있습니다. 같은 class를 두번 사용해야하는경우 그러면 어떻게 해야할까요?
+단지 그냥 Class 를 두번 생성해서 메소드 호출을 두번이나 해야할까요?
+정답은 아닙니다. 그러면 어떻게 두번을 출력시킬수 있느냐?
+
+<pre>
+<code>
+Class ClassName:
+  '''인스턴스 변수와 메소드 구현'''
+    cat1 = Cat() 
+    cat1.meow()
+    cat2 = Cat()
+    cat2.meow()
+</code>
+</pre>
+
+위에 코드처럼 하시면 됩니다. 그러면 출력값은 제가 정해둔 메소드로 출력이 두개가 되구요.
+
+<h2> 인스턴스 변수 생성</h2>
+인스턴스를 function으로 생성할때는 어떻게 해야할까요?
+우선 제가 쓴 밑에 코드를 보시면 됩니다.
+
+<pre>
+<code>
+Class Person:
+  def info(self):
+  self.name = "현준"
+  self.age = 17 (int라서 따옴표 안붙입니다.)
+  print('학생의 이름은' , self.name , '나이는' , self.age , '입니다.'> 
+</code>
+</pre>
+
+이런식으로 사용을 하면 됩니다.
+
+<h1>Self</h1>
+<ol>
+<li>파이썬의 self는 클래스의 인스턴스를 지칭합니다. self키워드를 통하여 
+  클래스의 메소드와 속성에 접근할수 있습니다.</li>
+  
+<li> 모든 메소드의 첫 번째 매개변수는 자기 자신을 가리키는 self 변수입니다.
+  즉 이 메소드는 호출한 현재 객체를 의미합니다. </li>
+</ol>
+
+한번 제가 self를 사용해서 조금 해석이 필요하지만 주석으로 설명드리겟습니다.
+
+<pre>
+<code>
+class Cat:
+    def __init__(self, name = "나비" , color = "흰색"): #name은 나비로 정하고 , #color은 흰색으로 정했습니다
+        self.name = name #그걸 self.name과 self.color에 대입을 시켜서 그러면 self.name과 self.color은 name과 color의 역활을 하는겁니다
+        self.color = color  
+    def info(self): #출력시키기 위함
+        print('고양이 이름은' , self.name , '색깔은' , self.color)
+cat1 = Cat("네로","흰색")
+cat2 = Cat("미미" , "갈색")
+
+cat1.info()
+cat2.info()
+</code>
+<pre>
+
+위에 코드까지 해석을 완료했네요. class 정의와 self는 여기까지입니다.
+
+# Python(ENG.ver)
+<h4>Please note that all translations have used Google Translator</h4>
+
+<h1>Class definition and self 2021.03.19</h1>
+
+<h1>Class</h1><br>
+The reason for using classes is simple. The reason for using classes is to express the concept of abstracted reality in concrete Python code.
+<br> For example, if we have black and white photos, the current 21st century does not mainly use black and white photos,
+I like the color
+In that case, it is Class. There is an'instance' in the class.
+<strong>Instances have specific values ​​such as color, name, etc.</strong>
+
+Here's how to define CLass in Python:
+<pre>
+<code>
+class Cat:
+  def meow(self): #meow() method definition
+  print('meow meow')
+  
+cat1 = Cat() #create instance
+cat1.meow() # method call
+</code>
+</pre>
+
+If you do as above, the output value will eventually be output as'Meow Meow'. Class can be divided into two.
+
+<pre>
+<code>
+#Class definition
+
+Class ClassName:
+  '''Instance variables and method implementations'''
+  
+  #Instance creation and method call
+    cat1 = Cat() #Cat instance creation cat1 created this.
+    cat1.meow() This is a method call implemented by #Cat.
+</code>
+</pre>
+    
+As above, Python Class can be divided into two and executed.
+Sometimes this is the case. What if you need to use the same class twice?
+Should I just create a Class twice and call the method twice?
+Not the correct answer. So how can you print twice?
+
+<pre>
+<code>
+Class ClassName:
+  '''Instance variables and method implementations'''
+    cat1 = Cat()
+    cat1.meow()
+    cat2 = Cat()
+    cat2.meow()
+</code>
+</pre>
+
+You can do it like the code above. Then, the output value is the method that I have set, and the output is two.
+
+<h2> Create instance variable</h2>
+What to do when creating an instance as a function?
+First of all, you can look at the code below that I wrote.
+
+<pre>
+<code>
+Class Person:
+  def info(self):
+  self.name = "Hyunjun"
+  self.age = 17 (Because it is an int, it is not quoted.)
+  print('Student's name is', self.name,'age is', self.age,'.'>
+</code>
+</pre>
+
+You can use it like this.
+
+<h1>Self</h1>
+<ol>
+<li>Python's self refers to an instance of a class. through the self keyword
+  You can access the methods and properties of the class.</li>
+  
+<li> The first parameter of any method is the variable self, which points to itself.
+  In other words, this method refers to the current object called. </li>
+</ol>
+
+Once I use self, it needs some interpretation, but I'll explain it with a comment.
+
+<pre>
+<code>
+class Cat:
+    def __init__(self, name = "butterfly", color = "white"): #name is set to butterfly, #color is set to white
+        self.name = name # By substituting it into self.name and self.color, then self.name and self.color play the role of name and color.
+        self.color = color
+    def info(self): #for printing
+        print('The cat's name is', self.name,'the color is', self.color)
+cat1 = Cat("Nero","White")
+cat2 = Cat("Mimi", "Brown")
+
+cat1.info()
+cat2.info()
+</code>
+<pre>
+
+You have completed the interpretation of the code above. That's all for class definition and self.
+
