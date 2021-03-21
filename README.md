@@ -272,3 +272,5 @@ cat2.info()
 
 You have completed the interpretation of the code above. That's all for class definition and self.
 
+<h1>Class 완벽하게 이해하기 2021.03.21</h1>
+
