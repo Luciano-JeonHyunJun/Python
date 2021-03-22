@@ -309,6 +309,45 @@ obj.sayHello()
 </code>
 </pre>
 
-<h1>class 이해하기(2) 2021.03.22</h1>
+# Python ENG.ver
+<h1>Understanding Class 2021.03.21</h1>
+<h6>We inform you that the content was written down on the 22nd due to deteriorating eye health</h6>
+<h6>All translations inform you that Google Translate was used</h6>
 
+What is a class?
+First of all, class is an important word in'object-oriented programming language'.
+A class is an independent space created with a name determined by the developer. It is called a namespace in a class.
+
+The most important component of a class is a'class method' that acts like a class member that acts as a'variable' of the class.
+Class members or class methods usually play similar roles, except that they are defined within the class space.
+
+So how do you define a class?
+
+<pre>
+<code>
+class class name:
+  Class member definition
+  Class method definition
+</code>
+</pre>
+Just define the class as above.
+
+Let's define a class named Myclass. Then you can write it like the code below.
+<pre>
+<code>
+class MyClass:
+  var ='Hello'
+  def sayHello(self):
+    print(self.var)
+
+obj = MyClass()
+print(obj.var)
+obj.sayHello()
+
+#Source: Python 200J
+</code>
+</pre>
+
+<h1>class 이해하기(2) 2021.03.22</h1>
+클래스 멤버는 클래스 메소드 밖에서 정의되는 function입니다.
 
