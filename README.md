@@ -272,6 +272,40 @@ cat2.info()
 
 You have completed the interpretation of the code above. That's all for class definition and self.
 
-<h1>Class 완벽하게 이해하기 2021.03.21</h1> 
+<h1>Class이해하기 2021.03.21</h1> 
 <h6>눈 건강 악화로 내용은 22일에 적었음을 알립니다</h6>
+
+클래스(class)란 무엇일까요?
+우선 클래스는 '객체지향 프로그래밍 언어'에서 중요한 단어입니다. 
+클래스는 개발자가 정한 이름으로 만든 독립된 공간입니다. 그것을 클래스에서는 이름공간(name space) 라고 부릅니다.
+
+클래스에서 가장 중요한 구성요소는 클래스의 '변수'의 역활을 해주는 클래스 멤버와 같은 역활을 하는 '클래스 메소드' 입니다
+클래스 멤버나 클래스 메소드는 클래스 공간 내에서 정의(define)되는것 말고는 보통의 역활은 비슷합니다.
+
+그러면 클래스는 어떻게 define할까요?
+
+<pre>
+<code>
+class 클래스 이름:
+  클래스 멤버 정의
+  클래스 메소드 정의
+</code>
+</pre>
+위에처럼 클래스를 정의하시면 됩니다.
+
+한번 Myclass 라는 이름의 클래스를 define해보겟습니다. 그러면 밑에 코드처럼 작성을 할수 있는데요.
+<pre>
+<code>
+class MyClass:
+  var = '안녕하세요'
+  def sayHello(self):
+    print(self.var)
+
+obj = MyClass()
+print(obj.var)
+obj.sayHello()
+
+#출처 : 파이썬 200J
+</code>
+</pre>
 
