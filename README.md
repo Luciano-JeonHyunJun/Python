@@ -391,3 +391,50 @@ obj.sayHello()
 </pre>
 
 obj.sayHello()는 MyClass의 sayHello()를 호출합니다. 인스턴스객체에서 클래스메소드를 호출할 경우 첫번째 Arguments인 self는 생략 됩니다.
+
+
+# Python ENG.ver
+<h1>Understanding class (2) 2021.03.22</h1>
+<h6>All translations inform you that Google Translator was used.</h6>
+Class members are functions that are defined outside of a class method.
+
+Class members have different properties from local variables (functions only valid within functions) or instance members defined within class methods.
+
+Class methods are functions defined within a class.
+For class methods, the first Arguments is essentially self.
+self: A reference to an instance object of the class.
+
+<h2>How to use classes in real code</h2>
+To use the class in real code, you first need to make it an instance object. Making it an instance object means making a class in a form that is actually usable, which is declarative.
+
+<h3>How to make a class an instance object?</h3>
+The method is simple. You can just call the <strong> class as if it were a function call. For example, to make MyClass an instance object, you can call MyClass().</strong>
+
+In line 6, the instance object of MyClass is designated as obj.
+
+How to call a member or method of obj
+
+<pre>
+<code>
+obj class member #MyClass class member
+obj.class method #MyClass's class method
+</code>
+</pre>
+ 
+You can write something like this: obj.var represents the class member var of MyClass. In the code below, var is then'Hello'.
+<pre>
+<code>
+class MyClass:
+  var ='Hello'
+  def sayHello(self):
+    print(self.var)
+
+obj = MyClass()
+print(obj.var)
+obj.sayHello()
+
+#Source: Python 200J
+</code>
+</pre>
+
+obj.sayHello() calls sayHello() of MyClass. When calling a class method from an instance object, the first Arguments, self, are omitted.
