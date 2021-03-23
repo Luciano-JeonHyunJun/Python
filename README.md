@@ -440,4 +440,280 @@ obj.sayHello()
 obj.sayHello() calls sayHello() of MyClass. When calling a class method from an instance object, the first Arguments, self, are omitted.
 
 <h1>Python Class 진짜 쉽게 이해하기 2021.03.24</h1>
+어제도 그저께도 class를 공부했는데 왜 아직도 class에서 못벗어나냐면 제가 보기엔 파이썬에서는 예외처리와 class가 가장 높은벽인거 같습니다.
+비록 개인차가 있겠지만 저에게는 class가 조금 많이 어렵더군요 중복커밋 죄송합니다.
+
+<h1>class 쉽게 이해하기전 배경스토리</h1>
+저는 class를 쉽게 이해하기 위해서 유튜브에서 영상을 보고 참고했는데 한가지 예를 들어서 이해를 했었습니다.
+우선 저는 자소서를 예로 들겠습니다. 저는 '전'씨 니깐 전 대리가 있었다고 하겠습니다.
+
+전 대리는 사장님께서 말씀하신 '신입 채용 공고'를 올리게 되었는데요 , 전 대리가 다니는 회사는 매우매우 작은 회사라 공고를 올렸는데 결국 3명의 지원자가 있었습니다.
+<pre>
+<code>
+이름: 홍길동
+나이: 30
+
+이름:김철수
+나이:28
+
+이름:이영희
+나이:25
+
+</code>
+</pre>
+이런식으로 지원자가 와서 전 대리는 이걸 파이썬으로 저장해두고 갑니다 그러면 전 대리는 아직 파이썬 초보니깐 단지 function으로 저장해두고 가겟죠 밑에 코드처럼
+<pre>
+<code>
+name_1 = 홍길동
+age_1 = 30
+
+name_2 = 김철수
+age_2 = 28
+
+name_3 = 이영희
+age_3 = 25
+
+</code>
+</pre>
+
+이런식으로 정리를 해두고 갑니다. 그 다음날 지나가는 선배께서 그냥 class로 정리를 하면 편하겟다고 하십니다.
+class로 해두면 1,2,3 이런식으로 안해도 되서 인데요.
+그래서 일단 전 대리는 class를 만들어봅니다
+
+<pre>
+<code>
+class JSS():
+    def __init__(self):
+        self.name = input("이름")
+        self.age = input("나이")
+        
+</code>
+</pre>
+이런식으로 class를 만들었는데요 여기서 전 대리는 의문점이 듭니다. 그러면 <strong>__init__</strong>이 뭐지?
+init는 class를 실행하는 순간 실행이 되는 함수입니다. 한마디로 a = JSS() 라는 함수를 만들어 놓고 , a에 할당하고나서 이 코드를 실행하게 된다면
+init함수의 내용이 실행되는것입니다.
+
+이렇게 말하니깐 어려우니 쉽게 예시를 보여드리자면 
+<pre>
+<code>
+class JSS():
+    def __init__(self):
+        print("안녕")
+    def show(self):
+        print("show 실행!")
+a = JSS()
+a.show()    
+</code>
+</pre>
+이런 코드를 볼때 아마 class를 모르는 분들은 매우 어렵게 보이실텐데 저는 이 코드를 진짜 쉽게 해석해드릴께요
+일단 제가 밑에 a = JSS()라고 쓴것은 init를 출력합니다 즉 "안녕"을 출력하죠 , 그러면 show()는? "당연히 show 실행!" 을 출력합니다.
+a. , a = 이라고 할때 a 는 self라고 보시면 편합니다.
+
+<h1>class 스토리 내용 활용</h1>
+이제 내용은 아실테니 활용을 해보겟습니다. 저는 그후 기록을 해두려고 input함수를 사용해서 좀 더 현실적인 코드를 만들어보겟습니다.
+<pre>
+<code>
+class JSS():
+    def __init__(self):
+        self.name = input("이름")
+        self.age = input("나이")
+    def show(self):
+        print("나의 이름은 {} , 나이는 {}살입니다.".format(self.name,self.age))
+a = JSS()
+a.show()      
+</code>
+</pre>
+이런 코드를 사용하게되면 출력값은 문자열 포맷팅(format)을 사용하여 input의 입력값을 받은후 출력이되는데요.
+이런식으로 입력값을 받으니 그러면 출력값은 바뀝니다.
+
+self : 클래스를 저장할 변수 
+-> JSS class를 만들고 그 안에 show 라는 함수 괄호안에  self를 넣는다는것은 a라는 변수에 JSS Class를 할당했을때, a.show() 이러한 형태를
+쓰겟다고 하는것이기 때문에 ()안에는 아무것도 안넣는것입니다.
+
+self는 a. , a = 역활입니다
+
+<h1>성별추가 (상속사용)</h1>
+만약 지원자들의 나이와 이름은 아는데 , 갑자기 성별을 알아야해서 성별을 받은후에는 class를 어떻게해야 할까요?
+성별은 홍길동 : 남 , 김철수 : 여 , 이영희 : 남 입니다.
+
+이럴때는 '상속' 을 사용하면 됩니다.
+<pre>
+<code>
+a = JSS()
+a.name = "홍길동"
+a.age = 30
+
+#이랫던 코드에 상속을하면
+
+a = JSS2()
+a.name = "홍길동" 
+a.age = 30
+a.gender = "남"
+</code>
+</pre>
+
+이런식으로 써주시면 됩니다. 그러면 활용코드는 어떻게 쓸까요?
+
+일단 밑에 코드에 주석과 코드를 봐주세요
+<pre>
+<code>
+class JSS2(JSS):
+  def __init__(self): #여기서 init를 사용하면 기본 정보가 초기화되고 , 새로 덮어쓰게 되므로
+      super().__init__(): #그 전 input을 유지함
+      self.gender = input("성별") #새롭게 추가함
+      
+</code>
+</pre>
+
+그러면 그냥 똑같은걸 만들고 싶다면 어떻게 해야 할까요?
+바로 pass 입니다 밑에 코드처럼 활용하면 됩니다.
+
+<pre>
+<code>
+class JSS2(JSS):
+  def __init__(self): 
+      pass
+a.JSS2() #init는 초기화됬으니 , 그냥 JSS가 똑같이 출력됨
+</code>
+</pre>
+
+# Python ENG.ver
+<h1>Python Class really easy to understand 2021.03.24</h1>
+<h6>All translations inform you that Google Translator was used</h6>
+I studied classes yesterday and yesterday, but the reason why I still can't get out of class is that exception handling and class are the highest walls in Python.
+Although there may be individual differences, the class was a bit difficult for me. I'm sorry for duplicate commit.
+
+<h1>Class background story before easy understanding</h1>
+In order to understand the class easily, I watched the video on YouTube and referenced it, but I understood it with an example.
+First of all, I will take a self-help book as an example. Since I'm'I', I'll say that I had a representative.
+
+The former assistant manager posted the'new recruitment announcement' that the boss said, but the company he works for is a very, very small company, and in the end there were 3 applicants.
+<pre>
+<code>
+Name: Hong Kil-dong
+Age: 30
+
+Name: Kim Chul-soo
+Age: 28
+
+Name: Lee Young-hee
+Age: 25
+
+</code>
+</pre>
+In this way, the applicant comes and the former deputy saves this in Python. Then, since the former deputy is still a beginner in Python, I will just save it as a function. Like the code below
+<pre>
+<code>
+name_1 = Hong Kil-dong
+age_1 = 30
+
+name_2 = Kim Chulsoo
+age_2 = 28
+
+name_3 = Younghee Lee
+age_3 = 25
+
+</code>
+</pre>
+
+I keep it organized in this way. The next day, a passing senior said that it would be more convenient if you just organized it into a class.
+If you make it as a class, it is because you don't have to do it like 1,2,3.
+So, first of all, I try to create a class
+
+<pre>
+<code>
+class JSS():
+    def __init__(self):
+        self.name = input("name")
+        self.age = input("age")
+        
+</code>
+</pre>
+I created a class like this, but here I have a question. So what is <strong>__init__</strong>?
+init is a function that is executed the moment the class is executed. In short, if you create a function called a = JSS(), assign it to a, then run this code
+The contents of the init function are executed.
+
+It’s difficult to say this, so let’s easily show you an example
+<pre>
+<code>
+class JSS():
+    def __init__(self):
+        print("hello")
+    def show(self):
+        print("run show!")
+a = JSS()
+a.show()
+</code>
+</pre>
+When looking at a code like this, it may seem very difficult for those who do not know the class, but I will interpret this code really easily.
+Once I write a = JSS() at the bottom, it prints init, that is, it prints "hello", then show()? "Of course, run the show!" Output.
+a. When we say, a =, it is convenient to see that a is self.
+
+<h1>Use of class story content</h1>
+Now I'll know the content, so I'll use it. After that, I will use the input function to make a more realistic code to record.
+<pre>
+<code>
+class JSS():
+    def __init__(self):
+        self.name = input("name")
+        self.age = input("age")
+    def show(self):
+        print("My name is {} and my age is {}.".format(self.name,self.age))
+a = JSS()
+a.show()
+</code>
+</pre>
+When you use this code, the output value is output after receiving the input value of the input using string formatting.
+When you receive an input value in this way, the output value changes.
+
+self: variable to store class
+-> Creating a JSS class and putting self in parentheses of a function called show in it means that when the JSS Class is assigned to a variable called a, a.show() has this form.
+Because it is said to be used, nothing is put in ().
+
+self is a. , a = role
+
+<h1>Gender addition (inheritance use)</h1>
+If I know the age and name of the applicants, but suddenly I need to know the gender, what should I do in the class after receiving the gender?
+Gender is Kildong Hong: Male, Chulsoo Kim: Female, Younghee Lee: Male.
+
+In this case, you can use'inheritance'.
+<pre>
+<code>
+a = JSS()
+a.name = "Hong Gil Dong"
+a.age = 30
+
+#If you inherit this code
+
+a = JSS2()
+a.name = "Hong Gil Dong"
+a.age = 30
+a.gender = "male"
+</code>
+</pre>
+
+You can write it like this. Then, how do you write the utilization code?
+
+First, look at the comments and code in the code below
+<pre>
+<code>
+class JSS2(JSS):
+  def __init__(self): #If you use init here, the default information will be initialized and overwritten.
+      super().__init__(): # keep the previous input
+      self.gender = input("Gender") #Newly added
+      
+</code>
+</pre>
+
+So what if you just want to make the same thing?
+It is pass. You can use it like the code below.
+
+<pre>
+<code>
+class JSS2(JSS):
+  def __init__(self):
+      pass
+a.JSS2() #init has been initialized, so JSS is output the same
+</code>
+</pre>
 
