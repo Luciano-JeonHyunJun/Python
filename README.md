@@ -438,3 +438,6 @@ obj.sayHello()
 </pre>
 
 obj.sayHello() calls sayHello() of MyClass. When calling a class method from an instance object, the first Arguments, self, are omitted.
+
+<h1>Python Class 진짜 쉽게 이해하기 2021.03.24</h1>
+
